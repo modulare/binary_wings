@@ -1,4 +1,3 @@
-//ok
 let marg = 100;
 let num_snip = 25;
 let view_range_body_on_borders = true;
