@@ -1,15 +1,242 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>My Github Pages Site</title>
-	 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js"></script>
-  </head>
-  <body>
-    <h1>Welcome</h1>
-    <p>Hello world!</p>
-	<script src="rotations_in_a_modular_space.js"></script>
-	<iframe src="rotations_in_a_modular_space.js" width=650 height=250
-	style="background: #F0E8DC;">
-	</iframe>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Binary wings</title>
+
+<style>
+body, html{margin:0;padding:0}
+h1{ font-size: 60px;}
+.container_descr{border: 1px solid black;background: #f1f1f1;}
+.container{border: 10px solid white; max-width: 1800px; margin: 0 margin-bottom: 40px}
+.contenuto{background: white;width:34%;float: left}
+.sidebar{background: white;width:64%;float: right}
+.uno {width: 100%;background-color: #f1f1f1;
+color: #ff4000;
+font-size: 40px;
+border-top: 1px solid black;
+border-bottom: 1px solid black;
+border-left: 1px solid black;
+border-right: 1px solid black;
+
+}
+.clearfix:after{
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear:both;
+	heigth: 0;
+	}
+
+
+/* Container holding the image and the text */
+.containerImgTxt {
+  position: relative;
+  text-align: center;
+  color: black;
+}
+
+/* Centered text */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 100%;
+  transform: translate(-50%, -75%);
+}
+
+
+.collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+.active, .collapsible:hover {
+  background-color: #555;
+}
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+.ul1 {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.li1 {
+  display: inline;
+}
+.nav {
+width: 10px;
+background-color: #f1f1f1;
+border: 1px solid black;
+font-size: 24px
+}
+
+.grid-container {
+  justify-content: left; 
+  display: grid;
+  grid-template-columns:150px 150px 150px;
+  grid-template-rows: 50px ;
+  grid-template-areas:
+	'run stop code';
+  grid-gap: 2px;
+  background-color: #ffffff;
+  padding: 1px;
+}
+
+.grid-container > div {
+  background-color: rgba(127, 127, 127, 1);
+  text-align: center;
+}
+
+
+@media (max-width:768px) {
+	.contenuto{width:100%}
+	.sidebar{width:100%}
+}
+</style>
+
+
+
+</head>
+
+<body style="background-color:#ffffff">
+<!-- ----------------------------------------------------------------------------- -->		
+<ul class="ul1">
+
+  <li class="li1 nav"><a href="#home">Home</a></li>
+  <li class="li1 nav"><a href="BynaryWingsPage2.html">Worktable</a></li>
+  <li class="li1 nav"><a href="BynaryWingsPage3.html">About</a></li>
+</ul>
+<!-- ----------------------------------------------------------------------------- -->		
+
+ <div class="containerImgTxt">
+  <img src="images/binaryswings.jpg" alt="Snow" style="width:100%;">
+  <div class="centered">
+  <h1 style="font-size:5vw;"><B>Binary wings</></h1>
+  <h2  style="font-size:2vw;"><i>
+  ...the code is like a "binary flying machine" built with words. </br>
+  Let's write them!
+  </i></h2>
+  </div>
+ 
+ 
+</div>
+<!-- ----------------------------------------------------------------------------- -->
+
+<div class="container clearfix">
+
+<div class="grid-container">
+  <div class="item1" >
+	<img onclick="myFunction()" src="images/run.jpg"  alt="" />
+  </div>   
+  <div class="item2">
+	<img onclick="myFunction1()" src="images/stop.jpg"  alt="" />
+  </div> 
+  <div class="item3">
+	<img onclick="myFunction2()" src="images/code.jpg"  alt="" />
+  </div>
+</div>
+
+ <div class="contenuto">
+ 
+ <div  align = "center" class="uno">
+  <h3>
+  <p>MODULAR</p>
+ </div>
+  <iframe id="demo10" src="images/modulare.jpg" width="100%" height="660px" ></iframe>
+ </div>
+ 
+ 
+ <div class="sidebar">
+
+ <div class="container_descr">
+   <h2>
+   <p>
+   Modular: <i>Rotations in a modular space</i>
+   <p>
+   This program produces a drawing in which the objects, when they cross over
+   the edge, are also drawn on the opposite side.<br>
+   If they cross a corner of the edge, they must be drawn four times.<br>
+   If they cross one side of the edge, they must be drawn twice.<br>
+   This "modular" way of drawing objects is the one used for static drawings in the "regular tessellations" of the floors or for the animations of famous games such as "Asteroid".<br>
+   In the event that the objects rotate, the maximum encumbrance of the rotation must be considered, otherwise the position of each vertex of the object would have to be calculated each time.
+   </h2></p>
+ </div>
+ 
+ <button type="button" class="collapsible"><h2>Click to open a "mermaid" summary flowchart of code </h2></button>
+ 
+ <div class="content">
+
+ <img src="images/mermaid.png" width="100%" height="auto" alt="smiley face">
+
+  </div> 
+   <img src="images/modulare_seq_0.png" width="24%" height="auto" alt="smiley face">
+   <img src="images/modulare_seq_1.png" width="24%" height="auto" alt="smiley face">
+   <img src="images/modulare_seq_2.png" width="24%" height="auto" alt="smiley face">
+   <img src="images/modulare_seq_3.png" width="24%" height="auto" alt="smiley face">
+   
+   <div class="container_descr">
+   
+   <p><h2>
+These are the four sequences that the program shows.<br>
+In the first there is a narrow border to highlight what happens when an object (a "boulder") crosses a corner or side.
+The "replicated boulders" have a red colored range.<br>
+In the second, the edge is wider and there are many "boulders" of different types.
+From the third sequence there are no more ranges.<br>
+In the fourth the edge is maximum and there is only one type of "boulder"
+   </h2></p>
+  </div>   
+  </div>
+
+ 
+</div>
+
+<!-- ----------------------------------------------------------------------------- -->
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+
+function myFunction() {
+   document.getElementById( 'demo10' ).setAttribute( 'src', 'run_modular.html' ); 
+   document.getElementById( 'demo10' ).setAttribute( 'scrolling', 'yes' );
+}
+
+function myFunction1() {
+  document.getElementById( 'demo10' ).setAttribute( 'src', 'images/modulare.jpg' );
+  document.getElementById( 'demo10' ).setAttribute( 'scrolling', 'yes' );
+}
+
+
+function myFunction2() {
+  document.getElementById( 'demo10' ).setAttribute( 'src', 'code_modular.html' );
+  document.getElementById( 'demo10' ).setAttribute( 'scrolling', 'no' );
+}
+</script>
+
+</body>
 </html>

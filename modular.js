@@ -1,20 +1,20 @@
 let marg = 100;
-let num_snip = 25;
-let view_range_body_on_borders = true;
+let num_boulder = 25;
+let view_range_body_on_edges = true;
 let transparency = 25;
 
 function setup() {
-    createCanvas(650, 650);
+    createCanvas(600, 600);
     let orX = width / 2;
     let orY = height / 2;
-    this.sni = [];
+    this.bldrs = [];
 
-    for (let i = 0; i < num_snip; i++) {
+    for (let i = 0; i < num_boulder; i++) {
         let kind = 1;
         let vX = random(-1, 1);
         let vY = random(-1, 1);
         let rot = random(-0.8, 0.8);
-        this.sni.push(new snip(i.toString(), orX, orY, new body(kind), createVector(vX, vY), rot));
+        this.bldrs.push(new boulder(i.toString(), orX, orY, new body(kind), createVector(vX, vY), rot));
     }
 }
 
@@ -29,86 +29,92 @@ function draw() {
 }
 
 function sequence() {
-
+ 
     if (frameCount == 1) {
-        //single body (of first snip) to show the quadruplication of body on the corner borders
-        //with draw the range of rotation and maximum margin out of the borders
+        //single body (of first boulder) to show the quadruplication of body on the corner edges
+        //with draw the range of rotation and maximum margin out of the edges
+        fill(0);
+        rect(0,0,width,height);
+        noFill();
         marg = 150;
         start_ = 0;
         end_ = 1;
-        view_range_body_on_borders = true;
+        view_range_body_on_edges = true;
 
         let kind = 1;
-        this.sni[0].bod.kind = kind;
-        this.sni[0].bod.set_range_(kind);
-        this.sni[0].range_ = this.sni[0].bod.range_;
-        this.sni[0].vel_rot = 1;
-        this.sni[0].vel.x = 1;
-        this.sni[0].vel.y = 1;
+        this.bldrs[0].bod.kind = kind;
+        this.bldrs[0].bod.set_range_(kind);
+        this.bldrs[0].range_ = this.bldrs[0].bod.range_;
+        this.bldrs[0].vel_rot = 1;
+        this.bldrs[0].vel.x = 1;
+        this.bldrs[0].vel.y = 1;
     }
 
-    if (frameCount == 500) {
-        //change direction to show the duplication of body on the opposite borders
-        this.sni[0].vel.x = 0.5;
-        this.sni[0].vel.y = 1.5;
+    if (frameCount == 300) {
+        //change direction to show the duplication of body on the opposite edges
+        this.bldrs[0].vel.x = 0.5;
+        this.bldrs[0].vel.y = 1.5;
     }
 
-    if (frameCount == 1500) {
+    if (frameCount == 1000) {
         //"explosion" of all kinds of bodies with the range of rotation
-        //reduction of the margin out of the borders
-        marg = 20;
+        //reduction of the margin out of the edges
+        marg = 60;
         start_ = 0;
-        end_ = num_snip;
-        //reset the first snip
-        this.sni[0].x = width / 2;
-        this.sni[0].y = height / 2;
-        this.sni[0].vel.x = random(-1, 1);
-        this.sni[0].vel.y = random(-1, 1);
+        end_ = num_boulder;
+        //reset the first boulder
+        this.bldrs[0].x = width / 2;
+        this.bldrs[0].y = height / 2;
+        this.bldrs[0].vel.x = random(-1, 1);
+        this.bldrs[0].vel.y = random(-1, 1);
         for (let i = start_; i < end_; i++) {
             let kind = ceil(random(-1, 2));
-            this.sni[i].bod.kind = kind;
-            this.sni[i].bod.set_range_(kind);
-            this.sni[i].range_ = this.sni[i].bod.range_;
+            this.bldrs[i].bod.kind = kind;
+            this.bldrs[i].bod.set_range_(kind);
+            this.bldrs[i].range_ = this.bldrs[i].bod.range_;
         }
     }
 
-    if (frameCount == 2000) {
+    if (frameCount == 1800) {
         //without draw the range of rotation
-        view_range_body_on_borders = false;
+        view_range_body_on_edges = false;
     }
 
     if (frameCount == 2500) {
         //only one kind whithout margin
+        fill(0);
+        rect(0,0,width,height);
+        noFill();
         transparency = 5;
         marg = 0;
         start_ = 0;
-        end_ = num_snip;
+        end_ = num_boulder;
         for (let i = start_; i < end_; i++) {
-            this.sni[i].vel.x = random(-1, 1);
-            this.sni[i].vel.y = random(-1, 1);
-            this.sni[i].x = width / 2;
-            this.sni[i].y = height / 2;
-            this.sni[i].bod.kind = 2;
-            this.sni[i].bod.set_range_(2);
-            this.sni[i].rot = random(0.6, 0.9);
-            this.sni[i].range_ = this.sni[i].bod.range_;
+            this.bldrs[i].vel.x = random(-1, 1);
+            this.bldrs[i].vel.y = random(-1, 1);
+            this.bldrs[i].x = width / 2;
+            this.bldrs[i].y = height / 2;
+            this.bldrs[i].bod.kind = 2;
+            this.bldrs[i].bod.set_range_(2);
+            this.bldrs[i].rot = random(0.6, 0.9);
+            this.bldrs[i].range_ = this.bldrs[i].bod.range_;
         }
     }
 
-    draw_snip(start_, end_);
+    draw_boulders(start_, end_);
 
 }
 
-function draw_snip(start_, end_) {
-    //draw the snips (on the borders too)
+function draw_boulders(start_, end_) {
+    //draw the boulders (on the edges too)
     for (let i = start_; i < end_; i++) {
-        sni[i].move();
-        sni[i].bod.display(sni[i].x, sni[i].y, sni[i].rot);
-        sni[i].borders();
+        bldrs[i].move();
+        bldrs[i].display();
+        bldrs[i].edges();
     }
 }
 
-class snip {
+class boulder {
 
     constructor(name, x, y, bod, vel, vel_rot) {
         this.name = name;
@@ -119,21 +125,27 @@ class snip {
         this.bod = bod;
         this.range_ = bod.range_;
         this.vel = vel;
-        //to determine if this.onBorders is true or false 
+        //to determine if this.onedges is true or false 
         //at the beginning
-        this.borders();
+        this.edges();
     }
 
     move() {
+      //move the main body
         this.x += this.vel.x;
         this.y += this.vel.y;
         this.rot += this.vel_rot;
     }
+  
+    display() {
+      //draw the main body
+      this.bod.display(this.x,this.y,this.rot);
+    }
 
-    borders() {
-        //duplicate or quadruplicate the body that cross the borders
+    edges() {
+        //duplicate or quadruplicate the main body that cross the edges
         let k = 0;
-        this.onBorders = true;
+        this.onedges = true;
         if (this.y - this.range_ / 2 < marg) {
             if (this.y < marg - this.range_ / 2) {
                 this.y = height - marg - this.range_ / 2;
@@ -184,12 +196,13 @@ class snip {
                 this.displayRange(this.x + (width - 2 * marg), this.y - (height - 2 * marg));
                 break;
             default:
-                this.onBorders = false;
+                this.onedges = false;
         }
     }
 
     displayRange(x, y) {
-        if (view_range_body_on_borders == true) {
+        if (view_range_body_on_edges == true) {
+            stroke(255,0,0);
             line(x - 6, y, x + 6, y);
             line(x, y - 6, x, y + 6);
             rect(x - this.bod.range_ / 2, y - this.bod.range_ / 2, this.range_);
@@ -273,5 +286,3 @@ class body {
         }
     }
 }
-
-
