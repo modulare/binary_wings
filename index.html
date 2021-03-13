@@ -80,7 +80,7 @@ border-right: 1px solid black;
 width: 10px;
 background-color: #f1f1f1;
 border: 1px solid black;
-font-size: 24px
+font-size: 36px
 }
 
 .grid-container {
@@ -133,21 +133,10 @@ font-size: 24px
  
  
 </div>
+
 <!-- ----------------------------------------------------------------------------- -->
-
+<br>
 <div class="container clearfix">
-
-<div class="grid-container">
-  <div class="item1" >
-	<img onclick="myFunction()" src="images/run.jpg"  alt="" />
-  </div>   
-  <div class="item2">
-	<img onclick="myFunction1()" src="images/stop.jpg"  alt="" />
-  </div> 
-  <div class="item3">
-	<img onclick="myFunction2()" src="images/code.jpg"  alt="" />
-  </div>
-</div>
 
  <div class="contenuto">
  
@@ -155,8 +144,9 @@ font-size: 24px
   <h3>
   <p>MODULAR</p>
  </div>
-  <iframe id="demo10" src="images/modulare.jpg" width="100%" height="660px" ></iframe>
-  
+ <iframe src="modular.js" width=100% height=660 style="background: #F0E8DC;"></iframe> 
+  <br>
+  <br>
 <ul class="ul1">
 
   <li class="li1 nav"><a href="run_modular.html">click to run the program, then click on the appropriate arrow to return to this page)</a></li>
@@ -164,7 +154,6 @@ font-size: 24px
 </ul>
   
  </div>
- 
  
  <div class="sidebar">
 
@@ -186,16 +175,16 @@ font-size: 24px
  
  <div class="content">
 
- <img src="images/mermaid.png" width="100%" height="auto" alt="smiley face">
+  <img src="images/mermaid.png" width="100%" height="auto" alt="smiley face">
 
-  </div> 
+ </div> 
+ 
    <img src="images/modulare_seq_0.png" width="24%" height="auto" alt="smiley face">
    <img src="images/modulare_seq_1.png" width="24%" height="auto" alt="smiley face">
    <img src="images/modulare_seq_2.png" width="24%" height="auto" alt="smiley face">
    <img src="images/modulare_seq_3.png" width="24%" height="auto" alt="smiley face">
    
-   <div class="container_descr">
-   
+   <div class="container_descr">  
    <p><h2>
 These are the four sequences that the program shows.<br>
 In the first there is a narrow border to highlight what happens when an object (a "boulder") crosses a corner or side.
@@ -228,21 +217,6 @@ for (i = 0; i < coll.length; i++) {
   });
 }
 
-function myFunction() {
-   document.getElementById( 'demo10' ).setAttribute( 'src', 'run_modular.html' ); 
-   document.getElementById( 'demo10' ).setAttribute( 'scrolling', 'yes' );
-}
-
-function myFunction1() {
-  document.getElementById( 'demo10' ).setAttribute( 'src', 'images/modulare.jpg' );
-  document.getElementById( 'demo10' ).setAttribute( 'scrolling', 'yes' );
-}
-
-
-function myFunction2() {
-  document.getElementById( 'demo10' ).setAttribute( 'src', 'code_modular.html' );
-  document.getElementById( 'demo10' ).setAttribute( 'scrolling', 'no' );
-}
 </script>
 
 </body>
