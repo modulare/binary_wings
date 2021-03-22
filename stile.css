@@ -1,0 +1,99 @@
+.padnav {padding:8px}
+.nav {
+width: 10px;
+background-color: #80ff80;
+border: 1px solid black;
+padding: 4px;
+font-size: 30px;
+}
+
+.p1{
+  font-family: "Times New Roman", Times, serif;
+}
+
+.p2{
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 10px;
+}
+
+body, html{margin:0;padding:0}
+h1{ font-size: 60px;}
+.container_descr{border: 1px solid black;background: #f1f1f1;}
+.container{border: 10px solid white; max-width: 1800px; margin: 0; margin-bottom: 40px}
+.contenuto{background: white;width:34%;float: left}
+.sidebar{background: white;width:64%;float: right}
+
+.uno {width: 100%;background-color: #f1f1f1;
+color: #ff4000;
+font-size: 40px;
+border-top: 1px solid black;
+border-bottom: 1px solid black;
+border-left: 1px solid black;
+border-right: 1px solid black;
+}
+
+
+.clearfix:after{
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear:both;
+	}
+
+
+/* Container holding the image and the text */
+.containerImgTxt {
+  position: relative;
+  text-align: center;
+  color: black;
+}
+
+/* Centered text */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 100%;
+  transform: translate(-50%, -75%);
+}
+
+
+.collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+.active, .collapsible:hover {
+  background-color: #555;
+}
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+.ul1 {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.li1 {
+  display: inline;
+}
+
+.workbench_div{margin: 10px;border: 1px solid black;background: #F0E8DC; height:auto;
+    overflow:auto;
+}
+
+@media (max-width:768px) {
+	.contenuto{width:100%}
+	.sidebar{width:100%}
+}
