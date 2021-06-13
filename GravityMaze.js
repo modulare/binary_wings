@@ -259,6 +259,8 @@ function init() {
   mazeOrY = arrMaze[arMazIdx].mazeOrY;
   lato = arrMaze[arMazIdx].lato;
 
+  solution = false;
+
   initArray();
 
   load_allN3D();
@@ -340,7 +342,7 @@ function draw() {
   }
   draw_button();
   image(fondo, 0, 0);
-  line(0,86-40,600,86-40);
+  line(0, 86 - 40, 600, 86 - 40);
 }
 
 function draw_name() {
@@ -590,12 +592,12 @@ function draw_percorsi() {
 function draw_facce(N3D, tipo) {
 
   let { a, b, c, d, g, e, f, h } = calcola_vertici(N3D);
-if(a[1]< 50){
-  console.log(a);
-}
- 
+  if (a[1] < 50) {
+    console.log(a);
+  }
 
-if (bit_test_if_is_1(tipo, 0)) {
+
+  if (bit_test_if_is_1(tipo, 0)) {
     let rosso = [255, 0, 0, 85];
     fondo.fill(rosso);
     fondo.beginShape();
@@ -1286,9 +1288,9 @@ arrMaze.push({
     [93, 18],
   ],
   solution:
-    [52,53,28,38,39, 89, 86, 81, 83, 8, 6, 31],
+    [52, 53, 28, 38, 39, 89, 86, 81, 83, 8, 6, 31],
   gravity_trap:
-    [60,64,67]
+    [60, 64, 67]
 });
 //info -> arMazIdx = 3
 arrMaze.push({
@@ -1303,7 +1305,7 @@ arrMaze.push({
   celle: [
     [12, 1],
     [22, 16],
-    [52,4],
+    [52, 4],
     [57, 1],
     [59, 16],
     [74, 4],
@@ -1317,19 +1319,19 @@ arrMaze.push({
     [146, 1],
     [162, 4],
     [177, 13],
-    [179,1],
-    [181,1],
+    [179, 1],
+    [181, 1],
     [182, 21],
     [187, 22],
     [200, 18],
     [202, 26],
     [204, 6],
     [205, 8],
-    [208,4],
+    [208, 4],
     [209, 8]
   ],
   solution:
-    [59,57,127,113,117,12,33,173,145,180,179,74,88],
+    [59, 57, 127, 113, 117, 12, 33, 173, 145, 180, 179, 74, 88],
   gravity_trap:
     []
 });
@@ -1396,7 +1398,7 @@ cell and their Code        cell and their Code
   +----------+             +----------+
 
   if you want a cell whith:
-   floor (NEVER CEILING !), the Code is                      4 = 4 
+   floor (NEVER CEILING !), the Code is                      4 = 4
    left wall and right wall, the Code is                 1 + 8 = 9
    front wall, left wall, rear wall, the Code is    16 + 1 + 2 = 19
    and so on...(64 possibilities = 6 bit of Code)
