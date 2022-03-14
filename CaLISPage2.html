@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>CaLIS</title>
+	<link rel="stylesheet" type="text/css" href="stile.css">
+</head>
+
+
+<body>
+
+	<div class="padnav">
+		<ul class="ul1">
+			<li class="li1 nav"><a href="index.html">Home</a></li>
+			<li class="li1 nav"><a href="#Frammenti">Frammenti</a></li>
+			<li class="li1 nav"><a href="CaLISPage3.html">Schemi</a></li>
+			<li class="li1 nav"><a href="CaLISPage4.html">Considerazioni</a></li>
+		</ul>
+	</div>
+
+
+	<!-- --------------------------------------------------------------------------------------------------- -->
+	<div align="left">
+		<!--<h2 style="font-size:2vw;"><i>-->
+		<h2>
+			<p class="p2">
+				In questa pagina sono presentati vari frammenti di codice al fine di poterne valutare l'utilità.
+				Sono da considerare come strumenti a se stanti in vista di una loro eventuale integrazione nel
+				progetto, anche solo per ricordare ciò che è possibile fare.<br>
+				Il nome di ogni frammento è ordinabile (prime 4 cifre numeriche) e cerca di essere mnemonico, con una
+				descrizione
+				minimale delle principali caratteristiche.<br>
+				In generale il formato di ogni frammento prevede un titolo al di sotto del quale può esserci una
+				immagine del risultato
+				e un link da cliccare per eseguire il frammento stesso, di fianco c'è riquadro con una descrizione.<br>
+				Si fa notare che il frammento viene eseguito in una nuova pagina. Per tornare alla pagina presente basta
+				cliccare la freccia di ritorno
+				della nuova pagina aperta (sul PC in alto a sinistra, in un dispositivo Android in basso a destra).
+			</p>
+
+			</p>
+		</h2>
+	</div>
+
+	<!-- --------------------------------------------0001_scheda_comparativa---------------------------------- -->
+	<div class="container clearfix">
+		<div class="contenuto">
+			<div align="center" class="uno">
+				<h3>
+					<p>0001 scheda comparativa</p>
+				</h3>
+			</div>
+			<br>
+			<ul class="ul1">
+				<li><a href="0001_scheda_comparativa.html">
+						<h2>click qui per eseguire il frammento </h2>
+					</a></li>
+			</ul>
+		</div>
+		<div class="sidebar">
+			<div class="container_descr p2">
+				<h3>
+					(testo provvisorio)<br>
+					Il link apre una pagina web contenente una "scheda" dedicata ai vari modi di rappresentare un
+					carattere<br>
+					con i suoi eventuali diacritici rappresentanti un (fonema?)<br>
+					La particolarità di questa scheda consiste nell'essere alimentata da un file JSON prodotto dalla
+					estrazione in banca dati<br>
+					delle informazioni necessarie, secondo un determinato schema(in questo esempio il file è emulato
+					assegnando i suoi valori <br>
+					direttamente all'interno dello script)<br>
+					E' preso in esame un caso semplice (la "e" con accento grave) che però già presenta la particolarità
+					di essere rappresentato<br>
+					con due caratteri distinti del font ALI. Viene anche indicata la stringa in codice di inserimento
+					ALI per rappresentare i <br>
+					caratteri con il font ALI. I glifi vengono anche disegnati in modo vettoriale<br>
+					Dal punto di vista tecnico il codice Html "legge" (in queto caso virtualmente) i dati JSON e
+					contiene uno script javascript <br>
+					il quale produce degli elementi SVG (testi e vettori)<br>
+					Detti che elementi SVG rappresentano sia testi selezionabili (quindi copiabili), sia disegni
+					vettoriali non selezionabili<br>
+					Le informazioni sono inserite secondo uno schema logico di righe che prevede due diverse tipologie
+					di rappresentazione:<br>
+					&nbsp -un codice carattere e la sua descrizione <br>
+					&nbsp -un disegno vettoriale e il suo significato nel proprio sistema di codifica<br>
+					Quello che si vorrebbe realizzare è un sistema di visualizzazione automatizzata di supporto alla
+					comparazione dei diversi<br>
+					modelli di simbolizzazione (fonetica?). <br>
+					In questa versione di test lo script prevede un numero massimo di 13 righe nella "scheda" (che tratta di un solo "argomento")
+				</h3>
+				</p>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- --------------------------------------------0000_p5_read_JSON_draw---------------------------------- -->
+	<div class="container clearfix">
+		<div class="contenuto">
+			<div align="center" class="uno">
+				<h3>
+					<p>0000 p5 read JSON draw</p>
+				</h3>
+			</div>
+			<br>
+			<ul class="ul1">
+				<li><a href="0000_p5_read_JSON_draw.html">
+						<h2>click qui per eseguire il frammento </h2>
+					</a></li>
+			</ul>
+		</div>
+		<div class="sidebar">
+			<div class="container_descr p2">
+				<h3>
+					Questo link esegue un file html il quale:<br>
+					- esegue uno script di tipo JavaScript utilizzando la libreria p5.min.js<br>
+					- scrive un testo html contenente un ideogramma “﨩” (U+FA29) sia copiandolo direttamente<br>
+					&nbsp nella stringa, sia rappresentandolo tramite il suo codice UTF-8<br>
+					Lo script invece:<br>
+					- legge un file di dati memorizzati nel formato di scambio JSON contenente un oggetto<br>
+					&nbsp composto di 2 record "linguistici".<br>
+					- disegna sia la localizzazione di questi due record che il contenuto dei campi di cui sono
+					formati<br>
+					&nbsp (quando si sovrappone il cursore sopra i cerchi che lo rappresentano e che hanno un
+					diametro<br>
+					&nbsp relativo al campo 'locutori stimati')<br>
+					<br>
+					Al contrario del testo html, la stringa contenuta nel file JSON riproduce l'ideogramma solo
+					copiato<br>
+					ma non rappresentato tramite il suo codice UTF-8<br>
+					<br>
+					Ad ogni buon conto tutti i caratteri sono rappresentate "lungo la stessa y" della stringa di
+					appartenenza.<br>
+					In un prossimo frammento si proverà a comporre una stringa "multilivello" tramite il formato SVG<br>
+					(Scalable Vector Graphics) integrabile nel formato html stesso
+				</h3>
+				</p>
+			</div>
+
+		</div>
+	</div>
+	<br>
+
+
+</body>
+
+</html>

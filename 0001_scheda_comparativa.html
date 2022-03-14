@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <style>
+    body {
+      background-color: #D7C8A3;
+    }
+  </style>
+</head>
+
+<body>
+
+  <svg id="svgPagina" width="1200" height="800">
+    <style>
+      .s1 {
+        font-family: Arial;
+        font-size: 1.2em;
+      }
+    </style>
+    <style>
+      .s2 {
+        font-family: Arial;
+        font-size: 1.0em;
+      }
+    </style>
+  </svg>
+
+  <h2>
+    <p class="s1">Scheda comparativa delle codifiche dei caratteri con eventuali diacritici</p>
+  </h2>
+  <h3>
+    <p class="s1">carattere "e" con accento grave</p>
+  </h3>
+
+    <p class="s2">nella prima colonna puo' esserci un codice o una visualizzazione del carattere (tramite font o
+      disegno) <br>
+      nella seconda colonna ci sono indicazioni sul sistema di codifica </p>  </h4>
+
+
+  <script type="text/javascript">
+    // emulazione dei dati letti da un file JSON 
+    var pagina = {
+      "INFORMAZIONI": "",
+      "RIGHE": [
+        [{ "puAs": "nEZF4", "tipo": "tex" }, "U+00E8", "codice Unicode di nome Latin Small Letter E with Grave"],
+        [{ "puAs": "3ttg4", "tipo": "tex" }, "è", "rappresentazione del codice 138 Extended ASCII Characters (qui rappresentato con il font Arial)"],
+        [{ "puAs": "ddZ2s", "tipo": "tex" }, "&#232", "codice HTML"],
+        [{ "puAs": "e5y75", "tipo": "tex" }, "e%4\\", "ALI: codifica di inserimento (ALIstring) dei due glifi distinti"],
+        [{ "puAs": "r3dr2", "tipo": "coo", "x": 1, "y": -20, "scaleX": 0.75, "scaleY": 0.75 }, "M 0.00330109,-0.0021099 16.604002,14.640696 7.7916458,0.00181082 z", "ALI: rappresentazione del glifo superiore (font ALI carattere 92)"],
+        [{ "puAs": "r3dr2", "tipo": "coo", "x": 1, "y": -20, "scaleX": 0.75, "scaleY": 0.75 },
+        "M 9.2559264,31.691416 c -4.667333,-1.73501 -7.244902,-4.79526 -8.60462197,-10.21597 -0.7865,-3.13548 -0.605553,-8.41943 0.39053197,-11.40417 0.933176,-2.7962396 2.292974,-4.9916296 " +
+        "4.077146,-6.5825396 4.841482,-4.31707004 11.6292286,-4.46896004 16.1966636,-0.36244 2.213626,1.99024 3.712665,5.24084 3.712665,8.0507496 v 1.29935 H 14.841852 4.6553934 v 1.67747 c " +
+        "0,1.98878 0.765843,5.17237 1.674844,6.96226 0.358125,0.70518 0.817345,1.73465 1.910056,2.9256 1.092711,1.19095 1.7692426,1.83125 3.6423706,2.53591 1.873128,0.70467 5.142652,0.80388  " +
+        "7.131061,-0.16896 1.776522,-0.86917 3.457176,-2.63563 4.337895,-4.55938 0.689446,-1.50595 0.775912,-1.57865 1.404652,-1.18103 0.332261,0.21013 0.340254,0.43283 0.05446,1.51731  " +
+        "-0.444481,1.68661 -1.635765,4.1795 -2.663801,5.57429 -2.812106,3.81535 -8.520347,5.55627 -12.8910006,3.93155 z M 18.259634,8.9706664 c -0.332343,-2.679 -1.935014,-5.06339 -3.97679,-5.9165 " +
+        "-1.050736,-0.43902 -3.017372,-0.47334 -4.4429466,-0.0775 -2.156347,0.59871 -4.91992,4.3799 -4.91992,6.73156 v 0.6515296 h 6.7559876 6.755989 z", "ALI: rappresentazione del glifo inferiore (font ALI carattere 101)"]
+      ]
+    };
+
+    var svg = document.getElementById('svgPagina');
+    var am = 'http://www.w3.org/2000/svg';
+    var rigY = -10;
+    var stepY = 60;
+    const rigX = [1, 150];
+    for (let k = 0; k < pagina.RIGHE.length; k++) {
+      let r = pagina.RIGHE[k];
+      rigY += stepY;
+      if (r[0].tipo == "tex") {
+        wriTex(r, 1, 0);
+        wriTex(r, 2, 1);
+      }
+      if (r[0].tipo == "coo") {
+        let pathElem = document.createElementNS(am, 'path');
+        let gElem = document.createElementNS(am, 'g');
+        let d = r[1];
+        let fill = 0;
+        pathElem.setAttribute('fill', fill);
+        pathElem.setAttribute("transform", "scale(" + r[0].scaleX + "," + r[0].scaleY + ")");
+        pathElem.setAttribute('d', d);
+        gElem.appendChild(pathElem);
+        let x = rigX[0] + r[0].x;
+        let y = rigY + r[0].y;
+        gElem.setAttribute("transform", "translate(" + x + "," + y + ")");
+        svg.appendChild(gElem);
+        wriTex(r, 2, 1);
+
+      }
+    };
+
+    document.body.appendChild(svg);
+
+    function wriTex(r, a, b) {
+      let textElem = document.createElementNS(am, 'text');
+      textElem.textContent = r[a];
+      textElem.setAttribute('x', rigX[b]);
+      textElem.setAttribute('y', rigY);
+      textElem.setAttribute('class', 's1');
+      svg.appendChild(textElem);
+    }
+
+  </script>
+</body>
+
+</html>
