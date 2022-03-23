@@ -1,7 +1,7 @@
 .padnav {padding:8px}
 .nav {
 width: 10px;
-background-color: #4ad9db;
+background-color: #80ff80;
 border: 1px solid black;
 padding: 4px;
 font-size: 30px;
@@ -52,7 +52,6 @@ border-right: 1px solid black;
 /* Centered text */
 .centered {
   position: absolute;
-  text-align: center;
   top: 50%;
   left: 50%;
   font-size: 100%;
