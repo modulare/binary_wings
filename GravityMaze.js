@@ -340,7 +340,6 @@ function draw() {
   }
   draw_button();
   image(fondo, 0, 0);
-  line(0,86-40,600,86-40);
 }
 
 function draw_name() {
